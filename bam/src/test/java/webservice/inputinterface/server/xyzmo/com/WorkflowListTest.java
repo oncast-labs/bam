@@ -1,5 +1,6 @@
 package webservice.inputinterface.server.xyzmo.com;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class WorkflowListTest {
 	
 	@Before
 	public void initObjects() {
-		webService = new XyzmoWebService("http://192.168.1.193:50006/");
+		webService = new XyzmoWebService("http://192.168.1.193:50006");
 	}
 	
 	@Test
@@ -35,6 +36,11 @@ public class WorkflowListTest {
 				                          "com.xyzmo.server.DocumentWorkflow._06_MimeParser"};
 		String[] workflowList = webService.getWorkflowList();
 		assertArrayEquals(workflowList, expected);
+	}
+	
+	@Test
+	public void testProccess() throws XyzmoWebServiceException, IOException  {
+		webService.process();
 	}
 	
 }

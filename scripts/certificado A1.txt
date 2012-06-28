@@ -1,0 +1,9 @@
+openssl.exe genrsa -des3 1024 > C:\Users\avila\certificacao\chaveprivada.key
+
+#openssl.exe req -new -key C:\Users\avila\certificacao\chaveprivada.key > C:\Users\avila\certificacao\solicitacao.csr
+
+openssl.exe req -x509 -days 3650 -new -key C:\Users\avila\certificacao\chaveprivada.key -out C:\Users\avila\certificacao\certificado.cer
+
+openssl.exe pkcs12 -export -out C:\Users\avila\certificacao\certificado.pfx -in C:\Users\avila\certificacao\certificado.cer -inkey C:\Users\avila\certificacao\chaveprivada.key -name "Luiz Avila"
+
+openssl.exe  pkcs12 -in C:\Users\avila\certificacao\certificado.pfx -info
