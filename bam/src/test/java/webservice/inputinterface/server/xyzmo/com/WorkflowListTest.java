@@ -1,13 +1,16 @@
 package webservice.inputinterface.server.xyzmo.com;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.security.Security;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertArrayEquals;
-
 
 import br.com.oncast.bam.service.xyzmo.XyzmoWebService;
 import br.com.oncast.bam.service.xyzmo.XyzmoWebServiceException;
@@ -18,7 +21,15 @@ public class WorkflowListTest {
 	
 	@Before
 	public void initObjects() {
-		webService = new XyzmoWebService("http://192.168.1.193:50006");
+		webService = new XyzmoWebService("https://testserver:40006");
+		
+		System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
+		System.setProperty("java.protocol.handler.pkgs", "com.sun.net.ssl.internal.www.protocol");
+		
+		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+		
+		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
+		System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files (x86)\\Java\\jdk1.6.0_33\\jre\\lib\\security\\cacerts");
 	}
 	
 	@Test
@@ -37,10 +48,11 @@ public class WorkflowListTest {
 		String[] workflowList = webService.getWorkflowList();
 		assertArrayEquals(workflowList, expected);
 	}
-	
+
 	@Test
 	public void testProccess() throws XyzmoWebServiceException, IOException  {
-		webService.process();
+		
+		webService.process("C:\\Users\\avila\\Dropbox\\MMC\\How to sign a PDF using iText.pdf");
 	}
 	
 }

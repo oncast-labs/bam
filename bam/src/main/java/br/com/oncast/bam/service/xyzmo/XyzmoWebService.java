@@ -48,19 +48,20 @@ public class XyzmoWebService {
 		return advancedSignServer;
 	}
 
-	public void process() throws XyzmoWebServiceException, IOException {
+	public void process(String filePath) throws XyzmoWebServiceException, IOException {
 		XyzmoWebServiceStub advancedSignServer = this.getWebServiceStub();
 		
 		XyzmoWebServiceStub.Process process = new XyzmoWebServiceStub.Process();
 		
 		String workflowOfInterest = "com.xyzmo.server.DocumentWorkflow._06_signAdobePDF";
-		File file = new File("C:\\Users\\avila\\Dropbox\\MMC\\teste.pdf");
+		File file = new File(filePath);
 		XyzmoWebServiceStub.ArrayOfFileContainer files = new XyzmoWebServiceStub.ArrayOfFileContainer();
 		XyzmoWebServiceStub.FileContainer[] array = new XyzmoWebServiceStub.FileContainer[1];
 		XyzmoWebServiceStub.FileContainer container = new XyzmoWebServiceStub.FileContainer();
 		DataHandler handle = new DataHandler(new FileDataSource(file));
 		container.setSourceFileContent(handle);
 		container.setSourceFileName(file.getName());
+		
 		for (int i = 0; i < array.length; i++) {
 			array[i] = container;
 		}
@@ -73,7 +74,7 @@ public class XyzmoWebService {
 		FileContainer[] fileConteiners = processResponse.getProcessResult().getProcessedFiles().getFileContainer();
 		
 		for (FileContainer fileConteiner : fileConteiners) {
-			FileOutputStream outputStream = new FileOutputStream("C:\\Users\\avila\\Dropbox\\MMC\\return\\" + fileConteiner.getSourceFileName());
+			FileOutputStream outputStream = new FileOutputStream(file.getParent() + "\\signed_" + fileConteiner.getSourceFileName());
 			fileConteiner.getSourceFileContent().writeTo(outputStream);
 		}
 		
