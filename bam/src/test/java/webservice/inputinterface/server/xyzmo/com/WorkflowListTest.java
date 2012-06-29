@@ -6,8 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.security.Security;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +27,7 @@ public class WorkflowListTest {
 		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 		
 		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
-		System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files (x86)\\Java\\jdk1.6.0_33\\jre\\lib\\security\\cacerts");
+		System.setProperty("javax.net.ssl.trustStore", this.getClass().getResource("/cacerts").getPath());
 	}
 	
 	@Test
@@ -52,7 +50,7 @@ public class WorkflowListTest {
 	@Test
 	public void testProccess() throws XyzmoWebServiceException, IOException  {
 		
-		webService.process("C:\\Users\\avila\\Dropbox\\MMC\\How to sign a PDF using iText.pdf");
+		webService.process(this.getClass().getResource("/teste.pdf").getPath());
 	}
 	
 }
