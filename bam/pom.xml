@@ -10,6 +10,7 @@
 		<springframework.version>3.1.1.RELEASE</springframework.version>
 		<springsecurity.version>3.1.0.RELEASE</springsecurity.version>
 	</properties>
+	
 
 	<repositories>
 		<repository>
@@ -52,6 +53,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
+					<libs>
+				        <lib>${java.home}/lib/rt.jar</lib>
+				        <lib>${java.home}/lib/jsse.jar</lib>
+				    </libs>
 					<source>1.6</source>
 					<target>1.6</target>
 					<showDeprecation>true</showDeprecation>
