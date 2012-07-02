@@ -1,0 +1,3 @@
+keytool -import -file F:\certificado\xyzmoroot.p7b -keypass changeit -keystore "C:\Program Files (x86)\Java\jdk1.6.0_33/jre/lib/security/cacerts"
+
+keytool -import -file F:\certificado\testserver.cer -keypass changeit -keystore "C:\Program Files (x86)\Java\jdk1.6.0_33/jre/lib/security/cacerts"
