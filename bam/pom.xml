@@ -54,7 +54,6 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<libs>
-				        <lib>${java.home}/lib/rt.jar</lib>
 				        <lib>${java.home}/lib/jsse.jar</lib>
 				    </libs>
 					<source>1.6</source>

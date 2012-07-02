@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.security.Security;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,13 +19,6 @@ public class WorkflowListTest {
 	@Before
 	public void initObjects() {
 		webService = new XyzmoWebService("https://testserver:40006");
-		
-		System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
-		System.setProperty("java.protocol.handler.pkgs", "com.sun.net.ssl.internal.www.protocol");
-		
-		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-		
-		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
 		System.setProperty("javax.net.ssl.trustStore", this.getClass().getResource("/cacerts").getPath());
 	}
 	
