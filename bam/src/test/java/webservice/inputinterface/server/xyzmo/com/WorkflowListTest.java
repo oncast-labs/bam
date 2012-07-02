@@ -42,7 +42,7 @@ public class WorkflowListTest {
 	@Test
 	public void testProccess() throws XyzmoWebServiceException, IOException  {
 		
-		webService.process(this.getClass().getResource("/teste.pdf_").getPath());
+		webService.process(this.getClass().getResource("/teste.pdf").getPath());
 	}
 	
 }
