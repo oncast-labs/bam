@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
@@ -113,12 +114,15 @@ public class XyzmoWeServiceNativeTest {
 	}
 	
 	@Test
-	public void testProcess() throws RemoteException {
+	public void testProcess() throws IOException {
 		String documentID = webService.uploadDocument(this.getClass().getResource("/teste.pdf").getPath());
 		assertNotNull(documentID);
 		
-		Boolean disposed = webService.Process(documentID);
-		assertTrue(disposed);
+		byte[] disposed = webService.Process(documentID);
+		
+		FileOutputStream outputStream = new FileOutputStream(this.getClass().getResource("/").getPath() + "processed_test.pdf");
+		outputStream.write(disposed);
+		outputStream.close();
 	}
 	
 	@Test

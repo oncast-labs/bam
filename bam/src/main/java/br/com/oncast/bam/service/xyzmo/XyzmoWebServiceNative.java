@@ -2,10 +2,14 @@ package br.com.oncast.bam.service.xyzmo;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.rmi.RemoteException;
 
 import javax.activation.DataHandler;
+import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,6 +38,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub;
+import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub.ArrayOfFileContainer;
+import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub.ArrayOfProcessResult;
+import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub.FileContainer;
+import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub.ProcessResponse;
+import sign.webservicenativeprototype.inputinterface.server.xyzmo.com.SignServiceNativeStub.ProcessResult;
 
 public class XyzmoWebServiceNative {
 
@@ -130,9 +139,41 @@ public class XyzmoWebServiceNative {
 		return response.getGetServerInformationResult();
 	}
 
-	public Boolean Process(String documentID) {
-		// TODO Auto-generated method stub
-		return false;
+	public byte[] Process(String documentID) throws IOException {
+		// let the server sign the document directly by calling the process method
+		SignServiceNativeStub.Process process = new SignServiceNativeStub.Process();
+		SignServiceNativeStub.ArrayOfString ids = new SignServiceNativeStub.ArrayOfString();
+		ids.addString(documentID);
+		process.setDocumentIds(ids);
+		process.setPluginType("com.xyzmo.server.xyzmoActivityLibrary.xyzmoSealSimpleActivity");
+		process.setXmlConfiguration(getActivityConfigurationTemplate("com.xyzmo.server.xyzmoActivityLibrary.xyzmoSealSimpleActivity"));
+		ProcessResponse resProcess = signStub.process(process);
+		ArrayOfProcessResult processResult = resProcess.getProcessResult();
+		ProcessResult[] documents = processResult.getProcessResult();
+
+		// get the signed document
+		ArrayOfFileContainer fileContainer = documents[0].getProcessedFiles();
+		SignServiceNativeStub.FileContainer[] signedFiles = fileContainer.getFileContainer();
+		SignServiceNativeStub.FileContainer container = signedFiles[signedFiles.length-1];
+		
+		FileOutputStream outputStream = new FileOutputStream("C:\\Users\\leandro\\dev\\projects\\bam\\bam\\target\\test-classes\\processed1_" + container.getSourceFileName());
+		container.getSourceFileContent().writeTo(outputStream);
+		outputStream.close();
+		
+		DataHandler dataHandler = signedFiles[signedFiles.length-1].getSourceFileContent();
+		DataSource dataSource = dataHandler.getDataSource();
+		InputStream in = dataSource.getInputStream();
+		byte[] resultDocument = new byte[in.available()];
+		in.read(resultDocument);
+		
+		// dispose the document from the server
+		DisposeDocument disposeDoc = new DisposeDocument();
+		disposeDoc.setId(documentID);
+		DisposeDocumentResponse resDisponse = managementStub.disposeDocument(disposeDoc);
+		DisposeDocumentResult disponseResult = resDisponse.getDisposeDocumentResult();
+		disponseResult.getDisposed();
+		
+		return resultDocument;
 	}
 
 }
