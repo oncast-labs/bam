@@ -1,13 +1,13 @@
 package br.com.oncast.bam.service.xyzmo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
-
 
 import org.junit.Before;
 import org.junit.Test;
@@ -109,8 +109,8 @@ public class XyzmoWeServiceNativeTest {
 		
 		System.out.println("documentID: " + documentID);
 		
-		Boolean disposed = webService.disposeDocument(documentID);
-		assertTrue(disposed);
+//		Boolean disposed = webService.disposeDocument(documentID);
+//		assertTrue(disposed);
 	}
 	
 	@Test
@@ -118,11 +118,7 @@ public class XyzmoWeServiceNativeTest {
 		String documentID = webService.uploadDocument(this.getClass().getResource("/teste.pdf").getPath());
 		assertNotNull(documentID);
 		
-		byte[] disposed = webService.Process(documentID);
-		
-		FileOutputStream outputStream = new FileOutputStream(this.getClass().getResource("/").getPath() + "processed_test.pdf");
-		outputStream.write(disposed);
-		outputStream.close();
+		webService.process(this.getClass().getResource("/teste.pdf").getPath());
 	}
 	
 	@Test

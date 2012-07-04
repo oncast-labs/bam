@@ -4,12 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringWriter;
 import java.rmi.RemoteException;
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -139,7 +137,12 @@ public class XyzmoWebServiceNative {
 		return response.getGetServerInformationResult();
 	}
 
-	public byte[] Process(String documentID) throws IOException {
+	public Boolean process(String documentToProcess) throws IOException {
+		
+		String documentID = this.uploadDocument(documentToProcess);
+		
+		File fileDocument = new File(documentToProcess);
+		
 		// let the server sign the document directly by calling the process method
 		SignServiceNativeStub.Process process = new SignServiceNativeStub.Process();
 		SignServiceNativeStub.ArrayOfString ids = new SignServiceNativeStub.ArrayOfString();
@@ -154,26 +157,21 @@ public class XyzmoWebServiceNative {
 		// get the signed document
 		ArrayOfFileContainer fileContainer = documents[0].getProcessedFiles();
 		SignServiceNativeStub.FileContainer[] signedFiles = fileContainer.getFileContainer();
-		SignServiceNativeStub.FileContainer container = signedFiles[signedFiles.length-1];
 		
-		FileOutputStream outputStream = new FileOutputStream("C:\\Users\\leandro\\dev\\projects\\bam\\bam\\target\\test-classes\\processed1_" + container.getSourceFileName());
-		container.getSourceFileContent().writeTo(outputStream);
-		outputStream.close();
-		
-		DataHandler dataHandler = signedFiles[signedFiles.length-1].getSourceFileContent();
-		DataSource dataSource = dataHandler.getDataSource();
-		InputStream in = dataSource.getInputStream();
-		byte[] resultDocument = new byte[in.available()];
-		in.read(resultDocument);
+		for (FileContainer signedFile : signedFiles) {
+			if (signedFile.getSourceFileContent() != null) {
+				FileOutputStream outputStream = new FileOutputStream(fileDocument.getParent() + "\\external_signed_" + signedFile.getStatus() + "_" + signedFile.getSourceFileName());
+				signedFile.getSourceFileContent().writeTo(outputStream);
+				outputStream.close();
+			}
+		}
 		
 		// dispose the document from the server
 		DisposeDocument disposeDoc = new DisposeDocument();
 		disposeDoc.setId(documentID);
 		DisposeDocumentResponse resDisponse = managementStub.disposeDocument(disposeDoc);
 		DisposeDocumentResult disponseResult = resDisponse.getDisposeDocumentResult();
-		disponseResult.getDisposed();
-		
-		return resultDocument;
+		return disponseResult.getDisposed();
 	}
 
 }
