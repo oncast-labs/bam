@@ -1,2 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%response.sendRedirect("login.jsf"); %>
+<html>
+<head>
+	<title>VRaptor Scaffold Project</title>
+</head>
+<body>
+	It works!!
+</body>
+</html>
