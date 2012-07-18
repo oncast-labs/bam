@@ -1,4 +1,4 @@
-package webservice.inputinterface.server.xyzmo.com;
+package br.com.oncast.bam.service.xyzmo;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,6 +9,8 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 import org.junit.Test;
 
+import webservice.inputinterface.server.xyzmo.com.XyzmoWebServiceStub;
+
 import br.com.oncast.bam.service.xyzmo.XyzmoWebService;
 import br.com.oncast.bam.service.xyzmo.XyzmoWebServiceException;
 
@@ -18,7 +20,7 @@ public class WorkflowListTest {
 	
 	@Before
 	public void initObjects() {
-		webService = new XyzmoWebService("https://testserver:40006");
+		webService = new XyzmoWebService("http://testlab.xyzmo.com:50006");
 		System.setProperty("javax.net.ssl.trustStore", this.getClass().getResource("/cacerts").getPath());
 	}
 	
