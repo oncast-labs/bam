@@ -264,7 +264,12 @@
 			<artifactId>slf4j-simple</artifactId>		
 			<version>1.6.1</version>
 		</dependency>
-
+<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.17</version>
+</dependency>
+            
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>

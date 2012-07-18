@@ -47,10 +47,10 @@ public class XyzmoWebServiceNative {
 	ManagementServiceNativeStub managementStub;
 	SignServiceNativeStub signStub;
 
-	public XyzmoWebServiceNative() {
+	public XyzmoWebServiceNative(String webServiceAddress) {
 		try {
-			managementStub = new ManagementServiceNativeStub();
-			signStub = new SignServiceNativeStub();
+			managementStub = new ManagementServiceNativeStub(webServiceAddress + "/com.xyzmo.server.inputinterface.webserviceNative.Management.asmx");
+			signStub = new SignServiceNativeStub(webServiceAddress + "/com.xyzmo.server.inputinterface.webserviceNative.Sign.asmx");
 		} catch (AxisFault e) {
 			e.printStackTrace();
 		}

@@ -18,7 +18,7 @@ public class XyzmoWeServiceNativeTest {
 	
 	@Before
 	public void initObjects() {
-		webService = new XyzmoWebServiceNative();
+		webService = new XyzmoWebServiceNative("http://testserver:56000");
 	}
 	
 	private String getFileContent(String fileName) throws FileNotFoundException, IOException {
