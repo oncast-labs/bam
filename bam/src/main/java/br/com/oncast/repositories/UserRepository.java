@@ -1,19 +1,14 @@
 package br.com.oncast.repositories;
 
-import java.util.List;
+import javax.persistence.EntityManager;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.oncast.domain.User;
 
-public interface UserRepository {
+@Component
+public class UserRepository extends Repository<User, Long> {
 
-	void create(User entity);
-
-	User update(User entity);
-
-	void destroy(User entity);
-
-	User find(Long id);
-
-	List<User> findAll();
-
+	UserRepository(EntityManager entityManager) {
+		super(entityManager);
+	}
 }
