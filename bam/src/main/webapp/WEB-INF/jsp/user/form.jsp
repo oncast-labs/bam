@@ -16,6 +16,10 @@
 		<input type="text" name="user.username" value="${user.username}"/>
 	</div>
 	<div class="field">
+		CPF:<br />
+		<input type="text" name="user.cpf" value="${user.cpf}"/>
+	</div>
+	<div class="field">
 		Password:<br />
 		<input type="text" name="user.password" value="${user.password}"/>
 	</div>

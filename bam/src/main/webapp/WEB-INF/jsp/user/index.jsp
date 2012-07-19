@@ -7,6 +7,7 @@
 	<table class="table table-striped ">
 		<tr>
 			<th>Username</th>
+			<th>CPF</th>
 			<th>Password</th>
 			<th>Enabled</th>
 			<th></th>
@@ -17,6 +18,7 @@
 		<c:forEach items="${userList}" var="user">
 			<tr>
 				<td>${user.username}</td>
+				<td>${user.cpf}</td>
 				<td>${user.password}</td>
 				<td>${user.enabled}</td>
 				<td><a href="${pageContext.request.contextPath}/users/${user.id}">show</a></td>

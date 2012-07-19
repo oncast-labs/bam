@@ -16,6 +16,8 @@ public class User {
 	private String password;
 
 	private boolean enabled;
+	
+	private String cpf;
 
 	public Long getId() {
 		return id;
@@ -47,6 +49,14 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 }
