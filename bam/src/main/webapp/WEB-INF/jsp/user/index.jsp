@@ -4,7 +4,7 @@
 <body>
 	<h1>Listing Users</h1>
 
-	<table>
+	<table class="table table-striped ">
 		<tr>
 			<th>Username</th>
 			<th>Password</th>
@@ -24,7 +24,7 @@
 				<td>
 					<form action="${pageContext.request.contextPath}/users/${user.id}" method="post">
 						<input type="hidden" name="_method" value="delete"/>
-						<button type="submit" onclick="return confirm('Are you sure?')">destroy</button>
+						<button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger">destroy</button>
 					</form>
 				</td>
 			</tr>
@@ -32,5 +32,7 @@
 	</table>
 
 	<br />
-	<a href="${pageContext.request.contextPath}/users/new">New User</a> 
+	<form action="${pageContext.request.contextPath}/users/new" method="get">
+		<button type="submit" class="btn btn-success">Novo Usuário</button>
+	</form>
 </body>

@@ -1,4 +1,4 @@
-package br.com.oncast.bam.repositories;
+package br.com.oncast.bam.repository;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

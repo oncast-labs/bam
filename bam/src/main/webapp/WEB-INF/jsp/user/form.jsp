@@ -25,7 +25,7 @@
 	</div>
 
 <div class="actions">
-	<button type="submit">send</button>
+	<button type="submit" class="btn btn-success">send</button>
 	</div>
 </form>
 

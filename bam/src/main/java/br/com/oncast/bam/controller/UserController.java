@@ -1,4 +1,4 @@
-package br.com.oncast.bam.controllers;
+package br.com.oncast.bam.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.oncast.bam.domains.User;
-import br.com.oncast.bam.repositories.UserRepository;
+import br.com.oncast.bam.domain.User;
+import br.com.oncast.bam.repository.UserRepository;
 
 @Resource
 public class UserController {

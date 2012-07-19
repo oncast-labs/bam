@@ -1,4 +1,4 @@
-package br.com.oncast.bam.services;
+package br.com.oncast.bam.service;
 
 import br.com.caelum.vraptor.ioc.Component;
 

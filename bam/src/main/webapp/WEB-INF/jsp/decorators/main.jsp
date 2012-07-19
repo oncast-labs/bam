@@ -10,7 +10,20 @@
     <decorator:head/>
   </head>
   <body>
-    <decorator:body/>
+  	<div class="navbar">
+  		<div class="navbar-inner">
+	  		<ul class="nav">
+			 	<li class="active">
+			    	<a href="#">Home</a>
+			  	</li>
+			  	<li><a href="#">Link</a></li>
+			  	<li><a href="#">Link</a></li>
+			</ul>
+  		</div>
+  	</div>
+  	<div class="container offset1 span10">
+    	<decorator:body/>
+    </div>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/application.js"></script>
   </body>
