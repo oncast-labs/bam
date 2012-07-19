@@ -33,6 +33,6 @@
 
 	<br />
 	<form action="${pageContext.request.contextPath}/users/new" method="get">
-		<button type="submit" class="btn btn-success">Novo Usuário</button>
+		<button type="submit" class="btn btn-success"><c:out value="Novo Usuario"/></button>
 	</form>
 </body>
