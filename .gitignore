@@ -1,4 +1,5 @@
 bam/src/main/webapp/WEB-INF/classes/
+bam/tmp
 .settings
 .classpath
 .project
