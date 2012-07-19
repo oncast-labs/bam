@@ -3,3 +3,4 @@
 .project
 bin/
 target/
+src/main/webapp/WEB-INF/classes/
