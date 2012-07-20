@@ -5,20 +5,23 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title><decorator:title default="Vraptor Scaffold"/></title>
+    <title><decorator:title default="Banco de Assinatura Manuscrita"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/application.css"/>
     <decorator:head/>
   </head>
   <body>
-  	<div class="navbar">
+  	<div class="navbar navbar-fixed-top">
   		<div class="navbar-inner">
-	  		<ul class="nav">
-			 	<li class="active">
-			    	<a href="#">Home</a>
-			  	</li>
-			  	<li><a href="#">Link</a></li>
-			  	<li><a href="#">Link</a></li>
-			</ul>
+  			<div class="container">
+  				<a class="brand" href="${pageContext.request.contextPath}">BAM</a>
+		  		<ul class="nav">
+				 	<li class="active">
+				    	<a href="#">Home</a>
+				  	</li>
+				  	<li><a href="#">Link</a></li>
+				  	<li><a href="#">Link</a></li>
+				</ul>
+			</div>
   		</div>
   	</div>
   	<div class="container offset1 span10">

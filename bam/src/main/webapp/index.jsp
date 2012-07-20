@@ -1,8 +1,8 @@
 <html>
 <head>
-	<title>VRaptor Scaffold Project</title>
+	<title>Banco de Assinatura Manuscrita</title>
 </head>
 <body>
-	It works!!
+	Home
 </body>
 </html>
