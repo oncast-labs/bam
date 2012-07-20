@@ -56,11 +56,6 @@ public class UserController {
 		return repository.find(user.getId());
 	}
 
-	@Get("/users/{user.id}")
-	public User show(User user) {
-		return repository.find(user.getId());
-	}
-
 	@Delete("/users/{user.id}")
 	public void destroy(User user) {
 		repository.destroy(repository.find(user.getId()));

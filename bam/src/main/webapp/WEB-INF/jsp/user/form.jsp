@@ -15,22 +15,19 @@
 		Username:<br />
 		<input type="text" name="user.username" value="${user.username}"/>
 	</div>
+	
 	<div class="field">
 		CPF:<br />
 		<input type="text" name="user.cpf" value="${user.cpf}"/>
 	</div>
+	
 	<div class="field">
 		Password:<br />
-		<input type="text" name="user.password" value="${user.password}"/>
+		<input type="password" name="user.password" value="${user.password}"/>
 	</div>
-	<div class="field">
-		Enabled:<br />
-		<input type="text" name="user.enabled" value="${user.enabled}"/>
-	</div>
-
-<div class="actions">
-	<button type="submit" class="btn btn-success">send</button>
+	
+	<div class="actions">
+		<button type="submit" class="btn btn-success">Send</button>
+		<button formaction="${pageContext.request.contextPath}/users" class="btn btn-info">Back</button>
 	</div>
 </form>
-
-<a href="${pageContext.request.contextPath}/users">Back</a>

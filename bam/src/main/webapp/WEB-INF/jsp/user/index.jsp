@@ -6,22 +6,20 @@
 
 	<table class="table table-striped ">
 		<tr>
+			<th>#</th>
 			<th>Username</th>
 			<th>CPF</th>
-			<th>Password</th>
 			<th>Enabled</th>
-			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
 
 		<c:forEach items="${userList}" var="user">
 			<tr>
+				<td>${user.id}</td>
 				<td>${user.username}</td>
 				<td>${user.cpf}</td>
-				<td>${user.password}</td>
 				<td>${user.enabled}</td>
-				<td><a href="${pageContext.request.contextPath}/users/${user.id}">show</a></td>
 				<td><a href="${pageContext.request.contextPath}/users/${user.id}/edit">edit</a></td>
 				<td>
 					<form action="${pageContext.request.contextPath}/users/${user.id}" method="post">
