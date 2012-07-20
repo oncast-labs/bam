@@ -28,6 +28,7 @@
 	
 	<div class="actions">
 		<button type="submit" class="btn btn-success">Send</button>
-		<button formaction="${pageContext.request.contextPath}/users" class="btn btn-info">Back</button>
 	</div>
 </form>
+
+<a href="${pageContext.request.contextPath}/users">Back</a>

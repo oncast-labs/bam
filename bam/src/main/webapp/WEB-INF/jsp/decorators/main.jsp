@@ -1,33 +1,42 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<meta charset="utf-8">
+    <meta content="text/html" />
     <title><decorator:title default="Banco de Assinatura Manuscrita"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/application.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap-responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap.css"/>
     <decorator:head/>
   </head>
-  <body>
-  	<div class="navbar navbar-fixed-top">
+<body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true">
+  	<div class="navbar">
   		<div class="navbar-inner">
   			<div class="container">
-  				<a class="brand" href="${pageContext.request.contextPath}">BAM</a>
-		  		<ul class="nav">
-				 	<li class="active">
-				    	<a href="#">Home</a>
-				  	</li>
-				  	<li><a href="#">Link</a></li>
-				  	<li><a href="#">Link</a></li>
-				</ul>
+  				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+	          	</button>
+  				<div class="nav-collapse collapse">
+	  				<ul class="nav">
+					 	<li class="active">
+					    	<a href="#">Home</a>
+					  	</li>
+					  	<li><a href="#">User</a></li>
+					</ul>
+				</div>
 			</div>
   		</div>
   	</div>
-  	<div class="container offset1 span10">
+  	<div class="container">
     	<decorator:body/>
     </div>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/application.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/bootstrap.js"></script>
   </body>
 </html>

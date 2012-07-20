@@ -2,7 +2,7 @@
 	<title>User [index]</title>
 </head>
 <body>
-	<h1>Listing Users</h1>
+	<h1>Usuarios</h1>
 
 	<table class="table table-striped ">
 		<tr>
