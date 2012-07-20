@@ -23,7 +23,7 @@ public abstract class Repository<T, I extends Serializable> {
 	}
 
 	public void create(T entity) {
-		entityManager.persist(entity);
+		 entityManager.persist(entity);
 	}
 
 	public T update(T entity) {
