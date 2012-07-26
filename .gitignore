@@ -1,5 +1,5 @@
-bam/src/main/webapp/WEB-INF/classes/
-bam/tmp
+bam-web/src/main/webapp/WEB-INF/classes/
+bam-web/tmp
 .settings
 .classpath
 .project
