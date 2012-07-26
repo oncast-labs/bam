@@ -12,8 +12,7 @@ import br.com.caelum.vraptor.validator.Message;
 
 public class IntegrationTest {
 
-	protected EntityManager entityManager = Persistence
-			.createEntityManagerFactory("default").createEntityManager();
+	protected EntityManager entityManager = Persistence.createEntityManagerFactory("default").createEntityManager();
 	protected MockResult result = new MockResult();
 	protected JSR303MockValidator validator = new JSR303MockValidator();
 

@@ -26,7 +26,7 @@ public class UserIT extends IntegrationTest {
 	public void shouldValidatePresenceOfName() {
 		// Given
 		User user = UserFactory.getUserWithoutName();
-		
+
 		try {
 			// When
 			userController.create(user);
@@ -40,7 +40,7 @@ public class UserIT extends IntegrationTest {
 	public void shouldValidatePresenceOfCpf() {
 		// Given
 		User user = UserFactory.getUserWithoutCpf();
-		
+
 		try {
 			// When
 			userController.create(user);
@@ -49,12 +49,12 @@ public class UserIT extends IntegrationTest {
 			shouldContainErrorMessage("cpf", "may not be null", validator.getErrors());
 		}
 	}
-	
+
 	@Test
 	public void shouldValidatePresenceOfEmail() {
 		// Given
 		User user = UserFactory.getUserWithoutEmail();
-		
+
 		try {
 			// When
 			userController.create(user);
