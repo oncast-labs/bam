@@ -1,23 +1,39 @@
 package br.com.oncast.bam.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity(name="BAM_USER")
+import org.hibernate.validator.constraints.Email;
+
+import br.com.caelum.stella.bean.validation.CPF;
+
+@Entity(name = "BAM_USER")
 public class User {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	private String username;
+	@CPF
+	@NotNull
+	@Column(unique = true)
+	private String cpf;
 
+	@Email
+	@NotNull
+	@Column(unique = true)
+	private String email;
+
+	@NotNull
 	private String password;
 
-	private boolean enabled;
-	
-	private String cpf;
+	@NotNull
+	private String name;
+
+	private boolean enabled = true;
 
 	public Long getId() {
 		return id;
@@ -27,12 +43,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -43,20 +67,16 @@ public class User {
 		this.password = password;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 }

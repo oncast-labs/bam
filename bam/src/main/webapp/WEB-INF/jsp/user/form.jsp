@@ -10,10 +10,15 @@
 		<input type="hidden" name="user.id" value="${user.id}"/>
 		<input type="hidden" name="_method" value="put"/>
 	</c:if>
+	
+	<div class="field">
+		Nome:<br />
+		<input type="text" name="user.name" value="${user.name}"/>
+	</div>
 
 	<div class="field">
-		Username:<br />
-		<input type="text" name="user.username" value="${user.username}"/>
+		email:<br />
+		<input type="text" name="user.email" value="${user.email}"/>
 	</div>
 	
 	<div class="field">
@@ -22,7 +27,7 @@
 	</div>
 	
 	<div class="field">
-		Password:<br />
+		Senha:<br />
 		<input type="password" name="user.password" value="${user.password}"/>
 	</div>
 	

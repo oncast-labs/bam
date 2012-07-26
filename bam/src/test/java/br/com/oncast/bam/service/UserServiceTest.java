@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import br.com.oncast.bam.domain.User;
+import br.com.oncast.bam.factory.UserFactory;
 import br.com.oncast.bam.repository.UserRepository;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -27,10 +28,7 @@ public class UserServiceTest {
 	@Test
 	public void shouldCreateUser() {
 		// Given
-		User user = new User();
-		user.setCpf("11111111111");
-		user.setUsername("userTest");
-		user.setPassword("userPass");
+		User user = UserFactory.getUser();
 
 		// When
 		userService.createUser(user);

@@ -8,7 +8,7 @@ import br.com.oncast.bam.domain.User;
 @Component
 public class UserRepository extends Repository<User, Long> {
 
-	UserRepository(EntityManager entityManager) {
+	public UserRepository(EntityManager entityManager) {
 		super(entityManager);
 	}
 }

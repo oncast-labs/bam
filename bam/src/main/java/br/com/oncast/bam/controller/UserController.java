@@ -19,7 +19,8 @@ public class UserController {
 	private final UserRepository repository;
 	private final Validator validator;
 
-	UserController(Result result, UserRepository repository, Validator validator) {
+	public UserController(Result result, UserRepository repository,
+			Validator validator) {
 		this.result = result;
 		this.repository = repository;
 		this.validator = validator;
@@ -35,6 +36,7 @@ public class UserController {
 		validator.validate(user);
 		validator.onErrorUsePageOf(this).newUser();
 		repository.create(user);
+		result.include("sucess", "Usuário incluído com sucesso!");
 		result.redirectTo(this).index();
 	}
 

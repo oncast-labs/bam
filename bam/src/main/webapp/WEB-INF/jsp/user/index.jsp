@@ -7,9 +7,10 @@
 	<table class="table table-striped ">
 		<tr>
 			<th>#</th>
-			<th>Username</th>
+			<th>Nome</th>
 			<th>CPF</th>
-			<th>Enabled</th>
+			<th>Email
+			<th>Ativo?</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -17,8 +18,9 @@
 		<c:forEach items="${userList}" var="user">
 			<tr>
 				<td>${user.id}</td>
-				<td>${user.username}</td>
+				<td>${user.name}</td>
 				<td>${user.cpf}</td>
+				<td>${user.email}</td>
 				<td>${user.enabled}</td>
 				<td><a href="${pageContext.request.contextPath}/users/${user.id}/edit">edit</a></td>
 				<td>
