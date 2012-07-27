@@ -14,15 +14,14 @@ import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub.User_Delete_v
 
 public class UserProfileWrapper {
 
-	public void addUser(User user) throws UserProfileException {
+	public void addUser(String userId, String fullName) throws UserProfileException {
 		try {
 			BiometricServerFactory serverFactory = new BiometricServerFactory();
 			User_Add_v1 bioUser = new User_Add_v1();
-			bioUser.setBioUserId(user.getId().toString());
-			bioUser.setDisplayName(user.getName());
+			bioUser.setBioUserId(userId);
+			bioUser.setDisplayName(fullName);
 			bioUser.setBioUserStatus(BioUserStatus.Active);
-			User_Add_v1Response userAddResponse;
-			userAddResponse = serverFactory.getWebServiceProxyUserAndProfile().user_Add_v1(bioUser);
+			User_Add_v1Response userAddResponse = serverFactory.getWebServiceProxyUserAndProfile().user_Add_v1(bioUser);
 			if (userAddResponse.getUser_Add_v1Result().getBaseResult() != WebServiceUserAndProfileStub.BaseResultEnum.ok) {
 				throw new UserProfileException(userAddResponse.getUser_Add_v1Result().getErrorInfo().getErrorMsg());
 			}
@@ -31,13 +30,12 @@ public class UserProfileWrapper {
 		}
 	}
 	
-	public void deleteUser(User user) throws UserProfileException {
+	public void deleteUser(String userId) throws UserProfileException {
 		try {
 			BiometricServerFactory serverFactory = new BiometricServerFactory();
 			User_Delete_v1 bioUser = new User_Delete_v1();
-			bioUser.setBioUserId(user.getId().toString());
-			User_Delete_v1Response userDeleteResponse;
-			userDeleteResponse = serverFactory.getWebServiceProxyUserAndProfile().user_Delete_v1(bioUser);
+			bioUser.setBioUserId(userId);
+			 User_Delete_v1Response userDeleteResponse = serverFactory.getWebServiceProxyUserAndProfile().user_Delete_v1(bioUser);
 			if (userDeleteResponse.getUser_Delete_v1Result().getBaseResult() != WebServiceUserAndProfileStub.BaseResultEnum.ok) {
 				throw new UserProfileException(userDeleteResponse.getUser_Delete_v1Result().getErrorInfo().getErrorMsg());
 			}

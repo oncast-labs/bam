@@ -1,45 +1,56 @@
 package br.com.oncast.bam.integration.xyzmo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import br.com.oncast.bam.domain.User;
-import br.com.oncast.bam.domain.factory.UserFactory;
 
 public class UserProfileWrapperTest {
 	
 	private UserProfileWrapper wrapper;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws UserProfileException {
 		wrapper = new UserProfileWrapper();
 	}
 
 	@Test
 	public void shouldCreateNewUser() {
 		//given
-		User user = UserFactory.getUser();
-		user.setId(1L);
+		String userId = "newTestUser";
+		String fullName = "The New User For Test";
 		
 		try {
 			//when
-			wrapper.addUser(user);
+			wrapper.addUser(userId, fullName);
 		} catch(UserProfileException e) {
 			//then
 			fail();
+		}
+		
+		//remove the user
+		try {
+			wrapper.deleteUser(userId);
+		} catch(UserProfileException e) {
+			e.printStackTrace();
 		}
 	}
 	
 	@Test
 	public void shouldDeleteExistingUser() {
 		//given
-		User user = new User();;
-		user.setId(1L);
+		String userId = "existingTestUser";
+		try {
+			//configure existing user
+			wrapper.addUser(userId, "Existing Test User");
+		} catch (UserProfileException e) {
+			e.printStackTrace();
+		}
 		
 		try {
 			//when
-			wrapper.deleteUser(user);
+			wrapper.deleteUser(userId);
 		} catch(UserProfileException e) {
 			//then
 			fail();
