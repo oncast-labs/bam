@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import webservice.inputinterface.server.xyzmo.com.XyzmoWebServiceStub;
-import br.com.oncast.bam.xyzmo.XyzmoWebService;
-import br.com.oncast.bam.xyzmo.XyzmoWebServiceException;
+import br.com.oncast.bam.integration.xyzmo.XyzmoWebService;
+import br.com.oncast.bam.integration.xyzmo.XyzmoWebServiceException;
 
 public class WorkflowListTest {
 	

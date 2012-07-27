@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.oncast.bam.xyzmo.XyzmoWebServiceNative;
+import br.com.oncast.bam.integration.xyzmo.XyzmoWebServiceNative;
 
 public class XyzmoWeServiceNativeTest {
 	

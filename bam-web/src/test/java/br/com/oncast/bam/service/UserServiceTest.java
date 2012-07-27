@@ -9,7 +9,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import br.com.oncast.bam.domain.User;
-import br.com.oncast.bam.factory.UserFactory;
+import br.com.oncast.bam.domain.factory.UserFactory;
 import br.com.oncast.bam.repository.UserRepository;
 
 @RunWith(MockitoJUnitRunner.class)

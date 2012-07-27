@@ -1,4 +1,4 @@
-package br.com.oncast.bam.xyzmo;
+package br.com.oncast.bam.integration.xyzmo;
 
 public class XyzmoWebServiceException extends Exception {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package br.com.oncast.bam.xyzmo;
+package br.com.oncast.bam.integration.xyzmo;
 
 import java.io.File;
 import java.io.FileOutputStream;

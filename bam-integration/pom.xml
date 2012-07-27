@@ -40,6 +40,13 @@
 
 	<dependencies>
 
+	
+		<dependency>
+			<groupId>br.com.oncast</groupId>
+			<artifactId>bam-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.axis2</groupId>
 			<artifactId>axis2</artifactId>
