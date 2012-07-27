@@ -6,6 +6,7 @@ public class UserFactory {
 
 	public static User getUser() {
 		User user = new User();
+		user.setId(1L);
 		user.setCpf("01234567890");
 		user.setName("Lauro");
 		user.setPassword("123456");

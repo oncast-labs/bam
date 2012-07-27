@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.repository.UserRepository;
+import br.com.oncast.bam.service.UserService;
 
 @Resource
 public class UserController {
@@ -18,10 +19,11 @@ public class UserController {
 	private final Result result;
 	private final UserRepository repository;
 	private final Validator validator;
+	private UserService userService;
 
-	public UserController(Result result, UserRepository repository,
-			Validator validator) {
+	public UserController(Result result, UserService userService, UserRepository repository, Validator validator) {
 		this.result = result;
+		this.userService = userService;
 		this.repository = repository;
 		this.validator = validator;
 	}
@@ -35,7 +37,7 @@ public class UserController {
 	public void create(User user) {
 		validator.validate(user);
 		validator.onErrorUsePageOf(this).newUser();
-		repository.create(user);
+		userService.create(user);
 		result.include("sucess", "Usuário incluído com sucesso!");
 		result.redirectTo(this).index();
 	}

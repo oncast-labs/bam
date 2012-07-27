@@ -2,6 +2,7 @@ package br.com.oncast.bam.integration.xyzmo;
 
 import java.rmi.RemoteException;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 
 import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub;
@@ -11,6 +12,7 @@ import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub.User_Add_v1Re
 import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub.User_Delete_v1;
 import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub.User_Delete_v1Response;
 
+@Component
 public class UserProfileWrapper {
 
 	public void addUser(String userId, String fullName) throws UserProfileException {

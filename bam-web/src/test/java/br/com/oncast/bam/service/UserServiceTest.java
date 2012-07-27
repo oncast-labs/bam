@@ -10,6 +10,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.integration.xyzmo.UserProfileException;
+import br.com.oncast.bam.integration.xyzmo.UserProfileWrapper;
 import br.com.oncast.bam.repository.UserRepository;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -19,10 +21,13 @@ public class UserServiceTest {
 
 	@Mock
 	private UserRepository userRepository;
+	
+	@Mock
+	private UserProfileWrapper userProfileWrapper;
 
 	@Before
 	public void setup() {
-		userService = new UserService(userRepository);
+		userService = new UserService(userRepository, userProfileWrapper);
 	}
 
 	@Test
@@ -31,10 +36,15 @@ public class UserServiceTest {
 		User user = UserFactory.getUser();
 
 		// When
-		userService.createUser(user);
+		userService.create(user);
 
 		// Then
 		verify(userRepository).create(user);
+		try {
+			verify(userProfileWrapper).addUser(user.getId().toString(), user.getName());
+		} catch (UserProfileException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

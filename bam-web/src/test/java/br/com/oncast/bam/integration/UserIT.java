@@ -19,7 +19,7 @@ public class UserIT extends IntegrationTest {
 	@Before
 	public void setUp() {
 		userRepository = new UserRepository(entityManager);
-		userController = new UserController(result, userRepository, validator);
+		userController = new UserController(result, null, userRepository, validator);
 	}
 
 	@Test
