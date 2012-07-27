@@ -2,7 +2,6 @@ package br.com.oncast.bam.integration.xyzmo;
 
 import java.rmi.RemoteException;
 
-import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 
 import com.xyzmo.wwww.biometricserver.WebServiceUserAndProfileStub;
