@@ -1,1 +1,1 @@
-copy bam-web\target\bam-web-2.0.war c:\Dev\Tomcat 7.0\webapps\
+copy bam-web\target\bam-web-2.0.war "c:\Dev\Tomcat 7.0\webapps"
