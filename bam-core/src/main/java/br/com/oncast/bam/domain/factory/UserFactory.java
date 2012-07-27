@@ -1,4 +1,4 @@
-package br.com.oncast.bam.factory;
+package br.com.oncast.bam.domain.factory;
 
 import br.com.oncast.bam.domain.User;
 

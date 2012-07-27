@@ -8,7 +8,7 @@ import org.junit.Test;
 import br.com.caelum.vraptor.validator.ValidationException;
 import br.com.oncast.bam.controller.UserController;
 import br.com.oncast.bam.domain.User;
-import br.com.oncast.bam.factory.UserFactory;
+import br.com.oncast.bam.domain.factory.UserFactory;
 import br.com.oncast.bam.repository.UserRepository;
 
 public class UserIT extends IntegrationTest {
