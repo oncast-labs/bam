@@ -20,7 +20,6 @@ public class UserProfileWrapperTest {
 		//given
 		String userId = "newTestUser";
 		String fullName = "The New User For Test";
-		fail();
 		try {
 			//when
 			wrapper.addUser(userId, fullName);
