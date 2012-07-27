@@ -16,7 +16,7 @@
 	</properties>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${parent.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
