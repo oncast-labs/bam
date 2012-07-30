@@ -21,19 +21,20 @@ public class UserServiceTest {
 
 	@Mock
 	private UserRepository userRepository;
-	
+
 	@Mock
 	private UserProfileWrapper userProfileWrapper;
 
 	@Before
 	public void setup() {
-		userService = new UserService(userRepository, userProfileWrapper);
+		userService = new UserService(userRepository);
 	}
 
 	@Test
 	public void shouldCreateUser() {
 		// Given
 		User user = UserFactory.getUser();
+		user.setId(1L);
 
 		// When
 		userService.create(user);

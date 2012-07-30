@@ -12,14 +12,14 @@ public class UserService {
 	private UserRepository userRepository;
 	private UserProfileWrapper userProfileWrapper;
 
-	public UserService(UserRepository userRepository, UserProfileWrapper userProfileWrapper) {
+	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		this.userProfileWrapper = userProfileWrapper;
+		this.userProfileWrapper = new UserProfileWrapper();
 	}
-	
+
 	public void create(User user) {
 		userRepository.create(user);
-		
+
 		try {
 			userProfileWrapper.addUser(user.getId().toString(), user.getName());
 		} catch (UserProfileException e) {
