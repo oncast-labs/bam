@@ -12,9 +12,9 @@ public class UserService {
 	private UserRepository userRepository;
 	private UserProfileWrapper userProfileWrapper;
 
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository, UserProfileWrapper userProfileWrapper) {
 		this.userRepository = userRepository;
-		this.userProfileWrapper = new UserProfileWrapper();
+		this.userProfileWrapper = userProfileWrapper;
 	}
 
 	public void create(User user) {

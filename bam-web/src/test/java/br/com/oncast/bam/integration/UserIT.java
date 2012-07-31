@@ -10,6 +10,8 @@ import br.com.caelum.vraptor.validator.ValidationException;
 import br.com.oncast.bam.controller.UserController;
 import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.integration.xyzmo.UserProfileWrapper;
+import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 import br.com.oncast.bam.repository.UserRepository;
 import br.com.oncast.bam.service.UserService;
 
@@ -23,7 +25,7 @@ public class UserIT extends IntegrationTest {
 	public void setUp() {
 		entityManager.getTransaction().begin();
 		userRepository = new UserRepository(entityManager);
-		userService = new UserService(userRepository);
+		userService = new UserService(userRepository, new UserProfileWrapper(new BiometricServerFactory()));
 		userController = new UserController(result, userService, userRepository, validator);
 	}
 

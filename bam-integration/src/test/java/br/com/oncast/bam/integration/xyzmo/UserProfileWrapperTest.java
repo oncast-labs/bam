@@ -2,9 +2,10 @@ package br.com.oncast.bam.integration.xyzmo;
 
 import static org.junit.Assert.fail;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 
 public class UserProfileWrapperTest {
 	
@@ -12,7 +13,7 @@ public class UserProfileWrapperTest {
 	
 	@Before
 	public void setUp() throws UserProfileException {
-		wrapper = new UserProfileWrapper();
+		wrapper = new UserProfileWrapper(new BiometricServerFactory());
 	}
 
 	@Test
