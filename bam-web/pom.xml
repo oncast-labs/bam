@@ -58,19 +58,19 @@
 	</build>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>br.com.oncast</groupId>
 			<artifactId>bam-integration</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>br.com.oncast</groupId>
 			<artifactId>bam-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>br.com.caelum</groupId>
 			<artifactId>vraptor</artifactId>
@@ -114,6 +114,11 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
 		</dependency>
 
 		<!-- Test dependencies -->
