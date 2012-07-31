@@ -15,7 +15,7 @@ import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 import br.com.oncast.bam.repository.UserRepository;
 import br.com.oncast.bam.service.UserService;
 
-public class UserIT extends IntegrationTest {
+public class UserIntegrationTest extends IntegrationTest {
 
 	private UserController userController;
 	private UserRepository userRepository;
