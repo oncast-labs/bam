@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/application.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap-responsive.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <decorator:head/>
   </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true">
