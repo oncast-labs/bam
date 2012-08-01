@@ -1,8 +1,17 @@
-<head>
-	<title>User [index]</title>
-</head>
 <body>
-	<h1>Usuarios</h1>
+	<h1>Usuarios</h1> 
+	
+	<c:if test="${not empty sucess}">
+		<br/> ${sucess} <br/>
+	</c:if>
+	
+	<br/>
+	
+	<form action="${pageContext.request.contextPath}/users/new" method="get">
+		<button type="submit" class="btn btn-success"><c:out value="Novo Usuario"/></button>
+	</form>
+	
+	<br/>
 
 	<table class="table table-striped ">
 		<tr>
@@ -32,9 +41,4 @@
 			</tr>
 		</c:forEach>
 	</table>
-
-	<br />
-	<form action="${pageContext.request.contextPath}/users/new" method="get">
-		<button type="submit" class="btn btn-success"><c:out value="Novo Usuario"/></button>
-	</form>
 </body>

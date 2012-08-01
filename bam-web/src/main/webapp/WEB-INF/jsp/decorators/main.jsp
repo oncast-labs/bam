@@ -24,10 +24,15 @@
 	          	</button>
   				<div class="nav-collapse collapse">
 	  				<ul class="nav">
-					 	<li class="active">
-					    	<a href="#">Home</a>
+					 	<li>
+					    	<a href="${pageContext.request.contextPath}/">Home</a>
 					  	</li>
-					  	<li><a href="#">User</a></li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/users">Usuarios</a>
+					  	</li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/documents">Documentos</a>
+					  	</li>
 					</ul>
 				</div>
 			</div>

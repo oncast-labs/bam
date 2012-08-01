@@ -5,7 +5,7 @@
 </c:if>
 
 <c:if test="${not empty fail}">
-	${fail}<br />
+	<br/> ${fail}<br />
 </c:if>
 
 <form action="${pageContext.request.contextPath}/documents" method="post" class="form-horizontal" enctype="multipart/form-data">

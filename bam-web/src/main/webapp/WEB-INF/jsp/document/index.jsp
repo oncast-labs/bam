@@ -1,13 +1,18 @@
-<head>
-	<title>Documentos</title>
-</head>
 <body>
 	<h1>Documentos</h1>
 	
 	<c:if test="${not empty sucess}">
-		${sucess}
+		<br/> ${sucess} <br/>
 	</c:if>
-
+	
+	<br/>
+	
+	<form action="${pageContext.request.contextPath}/documents/new" method="get">
+		<button type="submit" class="btn btn-success"><c:out value="Novo Documento"/></button>
+	</form>
+	
+	<br/>
+	
 	<table class="table table-striped ">
 		<tr>
 			<th>#</th>
@@ -21,9 +26,4 @@
 			</tr>
 		</c:forEach>
 	</table>
-
-	<br />
-	<form action="${pageContext.request.contextPath}/documents/new" method="get">
-		<button type="submit" class="btn btn-success"><c:out value="Novo Documento"/></button>
-	</form>
 </body>

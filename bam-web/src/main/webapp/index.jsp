@@ -3,6 +3,6 @@
 	<title>Banco de Assinatura Manuscrita</title>
 </head>
 <body>
-	Home
+	Banco de Assinatura Manuscrita
 </body>
 </html>
