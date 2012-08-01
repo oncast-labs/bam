@@ -2,10 +2,11 @@
 	<h1>Documentos</h1>
 	
 	<c:if test="${not empty sucess}">
-		<br/> ${sucess} <br/>
-	</c:if>
-	
-	<br/>
+		<div class="alert alert-success">
+	        <button type="button" class="close" data-dismiss="alert">x</button>
+	        ${sucess}
+		</div>
+	</c:if>	
 	
 	<form action="${pageContext.request.contextPath}/documents/new" method="get">
 		<button type="submit" class="btn btn-success"><c:out value="Novo Documento"/></button>
