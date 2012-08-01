@@ -35,10 +35,6 @@ public class UserProfileWrapper {
 			throw new UserProfileException(e);
 		}
 	}
-	
-	public void addProfile(String userID, String profileID) {
-		
-	}
 
 	public void deleteUser(String userId) throws UserProfileException {
 		try {
