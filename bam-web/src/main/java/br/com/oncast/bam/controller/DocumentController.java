@@ -7,7 +7,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.oncast.bam.CopyFileException;
+import br.com.oncast.bam.CantCopyDocumentException;
+import br.com.oncast.bam.InvalidDocumentTypeException;
 import br.com.oncast.bam.domain.Document;
 import br.com.oncast.bam.repository.DocumentRepository;
 import br.com.oncast.bam.service.DocumentService;
@@ -39,9 +40,15 @@ public class DocumentController {
 	public void upload(UploadedFile uploadedFile) {
 		try {
 			documentService.store(uploadedFile);
-		} catch (CopyFileException e) {
-			e.printStackTrace();
+			result.include("sucess", "O documento foi criado com sucesso");
+			result.forwardTo(this).index();
+		} catch (CantCopyDocumentException e) {
+			result.include("fail",
+					"Não foi possível copiar o arquivo para o servidor, por favor, entre em contato com o suporte técnico.");
+			result.forwardTo(this).newDocument();
+		} catch (InvalidDocumentTypeException e) {
+			result.include("fail", "O tipo do documento selecionado não é válido.");
+			result.forwardTo(this).newDocument();
 		}
-		result.forwardTo(this).index();
 	}
 }

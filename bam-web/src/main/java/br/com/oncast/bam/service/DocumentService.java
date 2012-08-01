@@ -8,7 +8,8 @@ import org.apache.commons.io.IOUtils;
 
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.oncast.bam.CopyFileException;
+import br.com.oncast.bam.CantCopyDocumentException;
+import br.com.oncast.bam.InvalidDocumentTypeException;
 import br.com.oncast.bam.domain.Document;
 import br.com.oncast.bam.repository.DocumentRepository;
 
@@ -22,7 +23,9 @@ public class DocumentService {
 		this.documentRepository = documentRepository;
 	}
 
-	public void store(UploadedFile uploadedFile) throws CopyFileException {
+	public void store(UploadedFile uploadedFile) throws CantCopyDocumentException, InvalidDocumentTypeException {
+		validateFileType(uploadedFile);
+
 		Document document = new Document();
 		document.setName(uploadedFile.getFileName());
 
@@ -30,12 +33,18 @@ public class DocumentService {
 		copyFileToDisk(uploadedFile);
 	}
 
-	private void copyFileToDisk(UploadedFile uploadedFile) throws CopyFileException {
+	private void validateFileType(UploadedFile uploadedFile) throws InvalidDocumentTypeException {
+		if (!documentRepository.validContentTypes().contains(uploadedFile.getContentType())) {
+			throw new InvalidDocumentTypeException();
+		}
+	}
+
+	private void copyFileToDisk(UploadedFile uploadedFile) throws CantCopyDocumentException {
 		try {
 			File file = new File(DEFAULT_PATH + uploadedFile.getFileName());
 			IOUtils.copyLarge(uploadedFile.getFile(), new FileOutputStream(file));
 		} catch (IOException e) {
-			throw new CopyFileException();
+			throw new CantCopyDocumentException();
 		}
 	}
 }

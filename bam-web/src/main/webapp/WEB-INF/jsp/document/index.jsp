@@ -3,6 +3,10 @@
 </head>
 <body>
 	<h1>Documentos</h1>
+	
+	<c:if test="${not empty sucess}">
+		${sucess}
+	</c:if>
 
 	<table class="table table-striped ">
 		<tr>
