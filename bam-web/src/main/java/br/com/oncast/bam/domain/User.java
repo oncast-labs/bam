@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
 import br.com.caelum.stella.bean.validation.CPF;
 
@@ -26,6 +28,9 @@ public class User {
 	@NotNull
 	@Column(unique = true)
 	private String email;
+
+	@NotNull
+	private String username;
 
 	@NotNull
 	private String password;
@@ -75,8 +80,20 @@ public class User {
 		this.name = name;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	public static void main(String[] args) {
+		PasswordEncoder encoder = new ShaPasswordEncoder();
+		System.out.println(encoder.encodePassword("admin", null));
+	}
 }

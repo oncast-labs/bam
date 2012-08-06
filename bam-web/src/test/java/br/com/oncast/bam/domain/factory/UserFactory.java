@@ -10,6 +10,7 @@ public class UserFactory {
 		user.setName("Lauro");
 		user.setPassword("123456");
 		user.setEmail("teste@teste.com");
+		user.setUsername("laurocaetano");
 		return user;
 	}
 
