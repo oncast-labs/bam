@@ -16,6 +16,7 @@
 	</properties>
 
 	<build>
+		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
 		<finalName>${parent.artifactId}</finalName>
 		<plugins>
 			<plugin>
