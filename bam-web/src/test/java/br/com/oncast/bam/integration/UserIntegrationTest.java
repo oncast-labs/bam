@@ -70,6 +70,20 @@ public class UserIntegrationTest extends IntegrationTest {
 			shouldContainErrorMessage("email", "may not be null", validator.getErrors());
 		}
 	}
+	
+	@Test
+	public void shouldValidatePresenceOfUsername() {
+		// Given
+		User user = UserFactory.getUserWithoutUsername();
+
+		try {
+			// When
+			userController.create(user);
+		} catch (ValidationException e) {
+			// Then
+			shouldContainErrorMessage("username", "may not be null", validator.getErrors());
+		}
+	}
 
 	@Test
 	public void shouldCreateUserWithValidData() {

@@ -1,3 +1,3 @@
 <body>
-	<%@include file="form.jsp"%>
+	<h1>BAM</h1>
 </body>

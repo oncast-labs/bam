@@ -1,4 +1,4 @@
-<form action="${pageContext.request.contextPath}/users" method="post" class="form-horizontal">
+<form action="<c:url value="/users"/>" method="post" class="form-horizontal">
   
 	<c:if test="${not empty user.id}">
 		<input type="hidden" name="user.id" value="${user.id}"/>
@@ -53,6 +53,21 @@
 		</div>
 		
 		<div class="control-group">
+			<label class="control-label" for="username">Username:</label>
+			<div class="controls">
+				<input type="text" name="user.username" value="${user.username}" id="username" class="input-xlarge"/>
+			</div>
+			<vraptor:hasErrors category="username">
+				<div>
+					<div class="alert alert-error">
+			        	<button type="button" class="close" data-dismiss="alert">x</button>
+			        	<vraptor:showErrors category="username" />
+			      	</div>
+			     </div>
+		    </vraptor:hasErrors>
+		</div>
+		
+		<div class="control-group">
 			<label class="control-label" for="password">Senha:</label>
 			<div class="controls">
 				<input type="password" name="user.password" value="${user.password}" id="password" class="input-xlarge"/>
@@ -69,7 +84,7 @@
 		
 		<div class="form-actions">
 			<button type="submit" class="btn btn-success">Enviar</button>
-			<a class="btn" data-toggle="modal" href="${pageContext.request.contextPath}/users" >Voltar</a>
+			<a class="btn" data-toggle="modal" href="<c:url value="/users"/>" >Voltar</a>
 			<c:if test="${not empty user.id}">
 				<a class="btn" data-toggle="modal" onclick="enroll(${user.id});" >Assinatura</a>
 			</c:if>

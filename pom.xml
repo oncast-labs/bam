@@ -131,27 +131,31 @@
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-core</artifactId>
-				<version>3.1.1.RELEASE</version>
+				<version>3.0.3.RELEASE</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
-				<version>3.1.1.RELEASE</version>
+				<version>3.0.3.RELEASE</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-taglibs</artifactId>
-				<version>3.1.1.RELEASE</version>
+				<version>3.0.3.RELEASE</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-web</artifactId>
-				<version>3.1.1.RELEASE</version>
+				<version>3.0.3.RELEASE</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jdbc</artifactId>
-				<version>3.1.2.RELEASE</version>
+				<version>3.0.3.RELEASE</version>
 			</dependency>
 
 			<!-- Test dependencies -->
@@ -185,7 +189,8 @@
 			</dependency>
 
 			<dependency>
-				<groupId>javax.servlet.jsp</groupId>
+				<groupId>javax.servlet.jsp
+				</groupId>
 				<artifactId>jsp-api</artifactId>
 				<version>2.1</version>
 				<scope>provided</scope>

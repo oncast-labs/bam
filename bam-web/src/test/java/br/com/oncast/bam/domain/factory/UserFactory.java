@@ -32,4 +32,10 @@ public class UserFactory {
 		return user;
 	}
 
+	public static User getUserWithoutUsername() {
+		User user = getUser();
+		user.setUsername(null);
+		return user;
+	}
+
 }
