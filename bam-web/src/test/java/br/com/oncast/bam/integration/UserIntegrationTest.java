@@ -2,7 +2,6 @@ package br.com.oncast.bam.integration;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +22,6 @@ public class UserIntegrationTest extends IntegrationTest {
 
 	@Before
 	public void setUp() {
-		entityManager.getTransaction().begin();
 		userRepository = new UserRepository(entityManager);
 		userService = new UserService(userRepository, new UserProfileWrapper(new BiometricServerFactory()));
 		userController = new UserController(result, userService, userRepository, validator);
@@ -70,7 +68,7 @@ public class UserIntegrationTest extends IntegrationTest {
 			shouldContainErrorMessage("email", "may not be null", validator.getErrors());
 		}
 	}
-	
+
 	@Test
 	public void shouldValidatePresenceOfUsername() {
 		// Given
@@ -95,10 +93,5 @@ public class UserIntegrationTest extends IntegrationTest {
 
 		// Then
 		assertEquals(result.included("sucess"), "Usuário incluído com sucesso!");
-	}
-
-	@After
-	public void tearDown() {
-		entityManager.close();
 	}
 }

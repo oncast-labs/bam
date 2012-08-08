@@ -1,12 +1,14 @@
 package br.com.oncast.bam.service;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
@@ -20,6 +22,9 @@ public class UserServiceTest {
 	private UserService userService;
 
 	@Mock
+	private Authentication authentication;
+
+	@Mock
 	private UserRepository userRepository;
 
 	@Mock
@@ -27,6 +32,7 @@ public class UserServiceTest {
 
 	@Before
 	public void setup() {
+		SecurityContextHolder.getContext().setAuthentication(authentication);
 		userService = new UserService(userRepository, userProfileWrapper);
 	}
 
@@ -42,6 +48,18 @@ public class UserServiceTest {
 		// Then
 		verify(userRepository).create(user);
 		verify(userProfileWrapper).addUser(user.getId().toString(), user.getName());
+	}
+
+	@Test
+	public void shouldGetLoggedUser() {
+		// Given
+		when(authentication.getName()).thenReturn("username");
+		
+		// When
+		userService.getLoggedUser();
+
+		// Then
+		verify(userRepository).findByUsername("username");
 	}
 
 }

@@ -1,5 +1,7 @@
 package br.com.oncast.bam.service;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.integration.xyzmo.UserProfileException;
@@ -25,5 +27,10 @@ public class UserService {
 		} catch (UserProfileException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public User getLoggedUser() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		return userRepository.findByUsername(username);
 	}
 }
