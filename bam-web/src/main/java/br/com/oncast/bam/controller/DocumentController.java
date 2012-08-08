@@ -7,7 +7,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.oncast.bam.CantCopyDocumentException;
+import br.com.oncast.bam.CannotCopyDocumentException;
 import br.com.oncast.bam.InvalidDocumentTypeException;
 import br.com.oncast.bam.domain.Document;
 import br.com.oncast.bam.repository.DocumentRepository;
@@ -42,7 +42,7 @@ public class DocumentController {
 			documentService.store(uploadedFile);
 			result.include("sucess", "O documento foi criado com sucesso");
 			result.forwardTo(this).index();
-		} catch (CantCopyDocumentException e) {
+		} catch (CannotCopyDocumentException e) {
 			result.include("fail",
 					"Não foi possível copiar o arquivo para o servidor, por favor, entre em contato com o suporte técnico.");
 			result.forwardTo(this).newDocument();

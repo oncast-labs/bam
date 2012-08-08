@@ -21,7 +21,7 @@
 			<th>#</th>
 			<th>Nome</th>
 			<th>CPF</th>
-			<th>Email
+			<th>Email</th>
 			<th>Ativo?</th>
 			<th></th>
 			<th></th>

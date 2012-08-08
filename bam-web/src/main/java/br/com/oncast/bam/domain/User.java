@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
 import br.com.caelum.stella.bean.validation.CPF;
 
@@ -92,8 +90,7 @@ public class User {
 		return enabled;
 	}
 
-	public static void main(String[] args) {
-		PasswordEncoder encoder = new ShaPasswordEncoder();
-		System.out.println(encoder.encodePassword("admin", null));
+	public void disable() {
+		enabled = false;
 	}
 }

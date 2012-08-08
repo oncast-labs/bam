@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 
 import br.com.caelum.vraptor.interceptor.multipart.DefaultUploadedFile;
 import br.com.caelum.vraptor.util.test.MockResult;
-import br.com.oncast.bam.CantCopyDocumentException;
+import br.com.oncast.bam.CannotCopyDocumentException;
 import br.com.oncast.bam.InvalidDocumentTypeException;
 import br.com.oncast.bam.service.DocumentService;
 
@@ -35,7 +35,7 @@ public class DocumentControllerTest {
 	}
 
 	@Test
-	public void shouldUploadDocument() throws FileNotFoundException, CantCopyDocumentException,
+	public void shouldUploadDocument() throws FileNotFoundException, CannotCopyDocumentException,
 			InvalidDocumentTypeException {
 		// Given
 		InputStream document = new FileInputStream(this.getClass().getResource("/teste.pdf").getPath());
@@ -51,7 +51,7 @@ public class DocumentControllerTest {
 	}
 
 	@Test
-	public void shouldValidateDocumentType() throws FileNotFoundException, CantCopyDocumentException,
+	public void shouldValidateDocumentType() throws FileNotFoundException, CannotCopyDocumentException,
 			InvalidDocumentTypeException {
 		// Given
 		InputStream document = new FileInputStream(this.getClass().getResource("/teste.pdf").getPath());
@@ -68,14 +68,14 @@ public class DocumentControllerTest {
 	}
 
 	@Test
-	public void shouldNoticeWhenCantCopyDocumentToDisk() throws FileNotFoundException, CantCopyDocumentException,
+	public void shouldNoticeWhenCantCopyDocumentToDisk() throws FileNotFoundException, CannotCopyDocumentException,
 			InvalidDocumentTypeException {
 		// Given
 		InputStream document = new FileInputStream(this.getClass().getResource("/teste.pdf").getPath());
 		DefaultUploadedFile uploadedFile = new DefaultUploadedFile(document, "teste.pdf", "application/pdf");
 
 		// Then
-		doThrow(new CantCopyDocumentException()).when(documentService).store(uploadedFile);
+		doThrow(new CannotCopyDocumentException()).when(documentService).store(uploadedFile);
 		documentController.upload(uploadedFile);
 
 		// When

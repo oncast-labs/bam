@@ -38,4 +38,14 @@ public class UserFactory {
 		return user;
 	}
 
+	public static User getEnabledUser() {
+		User user = getUser();
+		return user;
+	}
+
+	public static User getDisabledUser() {
+		User user = getUser();
+		user.disable();
+		return user;
+	}
 }
