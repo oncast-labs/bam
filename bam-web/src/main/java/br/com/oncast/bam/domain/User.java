@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -37,6 +38,9 @@ public class User {
 	private String name;
 
 	private boolean enabled = true;
+
+	@ManyToOne
+	private SignatureProfile signatureProfile;
 
 	public Long getId() {
 		return id;
@@ -93,4 +97,13 @@ public class User {
 	public void disable() {
 		enabled = false;
 	}
+
+	public SignatureProfile getSignatureProfile() {
+		return signatureProfile;
+	}
+
+	public void setSignatureProfile(SignatureProfile signatureProfile) {
+		this.signatureProfile = signatureProfile;
+	}
+
 }

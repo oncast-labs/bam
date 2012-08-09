@@ -1,5 +1,5 @@
 <body>
-	<h1>Grupo de usuários</h1> 
+	<h1>Perfil de Assinatura</h1> 
 	
 	<c:if test="${not empty sucess}">
 		<div class="alert alert-success">
@@ -10,8 +10,8 @@
 	
 	<br/>
 	
-	<form action="${pageContext.request.contextPath}/usergroups/new" method="get">
-		<button type="submit" class="btn btn-success"><c:out value="Novo Grupo de Usuario"/></button>
+	<form action="${pageContext.request.contextPath}/signatureprofiles/new" method="get">
+		<button type="submit" class="btn btn-success"><c:out value="Novo Perfil de Assinatura"/></button>
 	</form>
 	
 	<br/>
@@ -20,21 +20,21 @@
 		<tr>
 			<th>#</th>
 			<th>Nome</th>
-			<th>Administrador</th>
+			<th>Assinaturas por Página</th>
 			<th>Ativo?</th>
 		</tr>
 
-		<c:forEach items="${userGroupList}" var="userGroup">
+		<c:forEach items="${signatureProfileList}" var="signatureProfile">
 			<tr>
-				<td>${userGroup.id}</td>
-				<td>${userGroup.name}</td>
-				<td>${userGroup.administrator.name}</td>
+				<td>${signatureProfile.id}</td>
+				<td>${signatureProfile.name}</td>
+				<td>${signatureProfile.maxSignaturesPerPage}</td>
 				<td>
 					<c:choose>
-						<c:when test="${userGroup.enabled}">
+						<c:when test="${signatureProfile.enabled}">
 							<img src="${pageContext.request.contextPath}/images/glyphicons-ok.png" />
 						</c:when>
-						<c:when test="${not userGroup.enabled}">
+						<c:when test="${not signatureProfile.enabled}">
 							<img src="${pageContext.request.contextPath}/images/glyphicons-remove.png" />
 						</c:when>
 					</c:choose>

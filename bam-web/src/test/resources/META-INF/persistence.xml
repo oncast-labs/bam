@@ -5,9 +5,10 @@
 	version="2.0">
 
 	<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
+		<class>br.com.oncast.bam.domain.Document</class>
+		<class>br.com.oncast.bam.domain.SignatureProfile</class>
 		<class>br.com.oncast.bam.domain.User</class>
 		<class>br.com.oncast.bam.domain.UserGroup</class>
-		<class>br.com.oncast.bam.domain.Document</class>
 	</persistence-unit>
 
 </persistence>

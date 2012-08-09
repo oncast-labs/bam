@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import br.com.oncast.bam.EnabledUsersInGroupException;
+import br.com.oncast.bam.EnabledUsersException;
 
 @Entity
 public class UserGroup {
@@ -28,6 +28,9 @@ public class UserGroup {
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<User> members;
+
+	@ManyToOne
+	private SignatureProfile signatureProfile;
 
 	public Long getId() {
 		return id;
@@ -57,16 +60,24 @@ public class UserGroup {
 		return members;
 	}
 
-	public void addMember(User newMember) {
+	public SignatureProfile getSignatureProfile() {
+		return signatureProfile;
+	}
+
+	public void setSignatureProfile(SignatureProfile signatureProfile) {
+		this.signatureProfile = signatureProfile;
+	}
+
+	public void addUser(User newMember) {
 		if (members == null)
 			members = new ArrayList<User>();
 		members.add(newMember);
 	}
 
-	public void disable() throws EnabledUsersInGroupException {
+	public void disable() throws EnabledUsersException {
 		for (User member : members) {
 			if (member.isEnabled())
-				throw new EnabledUsersInGroupException();
+				throw new EnabledUsersException();
 		}
 		enabled = false;
 	}

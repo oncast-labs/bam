@@ -2,7 +2,7 @@
 	<div>
 		<div class="alert alert-error">
         	<button type="button" class="close" data-dismiss="alert">x</button>
-        	<c:out value="Usuário e/ou senha inválido(s)"/>
+        	<c:out value="UsuÃ¡rio e/ou senha invÃ¡lido(s)"/>
       	</div>
      </div>
  </c:if>

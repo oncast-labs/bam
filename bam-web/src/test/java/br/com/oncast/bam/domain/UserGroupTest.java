@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import br.com.oncast.bam.EnabledUsersInGroupException;
+import br.com.oncast.bam.EnabledUsersException;
 import br.com.oncast.bam.domain.factory.UserFactory;
 import br.com.oncast.bam.domain.factory.UserGroupFactory;
 
@@ -22,24 +22,24 @@ public class UserGroupTest {
 		User user = UserFactory.getUser();
 
 		UserGroup group = new UserGroup();
-		group.addMember(user);
+		group.addUser(user);
 
 		assertTrue(group.getMembers().contains(user));
 	}
 
-	@Test(expected = EnabledUsersInGroupException.class)
-	public void shouldNotDisableWhenThereAreEnabledUsers() throws EnabledUsersInGroupException {
+	@Test(expected = EnabledUsersException.class)
+	public void shouldNotDisableWhenThereAreEnabledUsers() throws EnabledUsersException {
 		UserGroup group = UserGroupFactory.getEnabledUserGroup();
-		group.addMember(UserFactory.getDisabledUser());
-		group.addMember(UserFactory.getEnabledUser());
+		group.addUser(UserFactory.getDisabledUser());
+		group.addUser(UserFactory.getEnabledUser());
 
 		group.disable();
 	}
 
 	@Test
-	public void shouldDisableIfThereAreOnlyDisabledUsers() throws EnabledUsersInGroupException {
+	public void shouldDisableIfThereAreOnlyDisabledUsers() throws EnabledUsersException {
 		UserGroup group = UserGroupFactory.getEnabledUserGroup();
-		group.addMember(UserFactory.getDisabledUser());
+		group.addUser(UserFactory.getDisabledUser());
 
 		group.disable();
 

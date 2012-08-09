@@ -2,15 +2,13 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
-  	<meta charset="utf-8">
-    <meta content="text/html" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title><decorator:title default="Banco de Assinatura Manuscrita"/></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/application.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap-responsive.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/bootstrap.css"/>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <decorator:head/>
   </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true">
@@ -28,10 +26,16 @@
 					    	<a href="${pageContext.request.contextPath}/">Home</a>
 					  	</li>
 					  	<li>
-					  		<a href="${pageContext.request.contextPath}/users">Usuarios</a>
+					  		<a href="${pageContext.request.contextPath}/users">Usuários</a>
 					  	</li>
 					  	<li>
 					  		<a href="${pageContext.request.contextPath}/documents">Documentos</a>
+					  	</li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/usergroups">Grupos de Usuário</a>
+					  	</li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/signatureprofiles">Perfis de Assinatura</a>
 					  	</li>
 					</ul>
 				</div>
@@ -44,5 +48,6 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/application.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/bootstrap-modal.js"></script>
   </body>
 </html>

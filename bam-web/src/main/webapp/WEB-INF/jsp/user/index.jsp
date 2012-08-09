@@ -1,5 +1,5 @@
 <body>
-	<h1>Usuarios</h1> 
+	<h1>Usuários</h1> 
 	
 	<c:if test="${not empty sucess}">
 		<div class="alert alert-success">
