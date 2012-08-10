@@ -9,6 +9,10 @@
 		<class>br.com.oncast.bam.domain.SignatureProfile</class>
 		<class>br.com.oncast.bam.domain.User</class>
 		<class>br.com.oncast.bam.domain.UserGroup</class>
+		
+		<class>br.com.oncast.bam.domain.company.Address</class>
+		<class>br.com.oncast.bam.domain.company.Company</class>
+		<class>br.com.oncast.bam.domain.company.Contact</class>
 	</persistence-unit>
 
 </persistence>

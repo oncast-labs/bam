@@ -5,8 +5,8 @@ import java.util.List;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.oncast.bam.domain.company.Company;
 import br.com.oncast.bam.repository.CompanyRepository;
 
@@ -14,10 +14,10 @@ import br.com.oncast.bam.repository.CompanyRepository;
 public class CompanyController {
 
 	private CompanyRepository companyRepository;
-	private MockResult result;
+	private Result result;
 	private Validator validator;
 
-	public CompanyController(CompanyRepository companyRepository, MockResult result, Validator validator) {
+	public CompanyController(CompanyRepository companyRepository, Result result, Validator validator) {
 		this.companyRepository = companyRepository;
 		this.result = result;
 		this.validator = validator;
