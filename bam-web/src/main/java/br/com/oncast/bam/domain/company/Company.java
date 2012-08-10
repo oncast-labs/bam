@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import br.com.caelum.stella.bean.validation.CNPJ;
 
@@ -19,6 +20,7 @@ public class Company {
 	@GeneratedValue
 	private Long id;
 
+	@NotNull
 	private String name;
 
 	@CNPJ
