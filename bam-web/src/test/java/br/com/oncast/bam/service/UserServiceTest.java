@@ -38,27 +38,21 @@ public class UserServiceTest {
 
 	@Test
 	public void shouldCreateUser() throws UserProfileException {
-		// Given
 		User user = UserFactory.getUser();
 		user.setId(1L);
 
-		// When
 		userService.create(user);
 
-		// Then
 		verify(userRepository).create(user);
 		verify(userProfileWrapper).addUser(user.getId().toString(), user.getName());
 	}
 
 	@Test
 	public void shouldGetLoggedUser() {
-		// Given
 		when(authentication.getName()).thenReturn("username");
-		
-		// When
+
 		userService.getLoggedUser();
 
-		// Then
 		verify(userRepository).findByUsername("username");
 	}
 

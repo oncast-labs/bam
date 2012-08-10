@@ -34,30 +34,26 @@ public class DocumentServiceTest {
 	}
 
 	@Test
-	public void shouldStoreUploadedFileOnDisk() throws CannotCopyDocumentException, FileNotFoundException, InvalidDocumentTypeException {
-		// Given
+	public void shouldStoreUploadedFileOnDisk() throws CannotCopyDocumentException, FileNotFoundException,
+			InvalidDocumentTypeException {
 		InputStream document = new FileInputStream(this.getClass().getResource("/teste.pdf").getPath());
 		DefaultUploadedFile uploadedFile = new DefaultUploadedFile(document, "teste.pdf", "application/pdf");
 
-		// When
 		doNothing().when(documentRepository).create(new Document());
 		documentService.store(uploadedFile);
 
-		// Then
 		File fileOnDisk = new File(DocumentService.DEFAULT_PATH + uploadedFile.getFileName());
 		assertTrue(fileOnDisk.exists());
 	}
 
 	@Test(expected = InvalidDocumentTypeException.class)
-	public void shouldValidateDocumentType() throws CannotCopyDocumentException, FileNotFoundException, InvalidDocumentTypeException {
-		// Given
+	public void shouldValidateDocumentType() throws CannotCopyDocumentException, FileNotFoundException,
+			InvalidDocumentTypeException {
 		InputStream document = new FileInputStream(this.getClass().getResource("/test.txt").getPath());
 		DefaultUploadedFile uploadedFile = new DefaultUploadedFile(document, "test.txt", "application/text");
-		
-		// When
+
 		documentService.store(uploadedFile);
-		
-		// Then 
+
 		fail();
 	}
 }

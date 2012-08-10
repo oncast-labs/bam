@@ -42,6 +42,6 @@ public class SignatureProfileController {
 		signatureProfileRepository.create(signatureProfile);
 
 		result.include("sucess", "Perfil de assinatura adicionado com sucesso.");
-		result.redirectTo(this).index();
+		result.redirectTo(this.index());
 	}
 }

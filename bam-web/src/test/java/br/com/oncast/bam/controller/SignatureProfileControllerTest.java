@@ -2,14 +2,13 @@ package br.com.oncast.bam.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
@@ -29,17 +28,17 @@ public class SignatureProfileControllerTest {
 
 	@Before
 	public void setUp() {
-		result = new MockResult();
+		MockitoAnnotations.initMocks(this);
+		result = spy(new MockResult());
 		validator = new MockValidator();
-		signatureProfileRepository = Mockito.mock(SignatureProfileRepository.class);
 		signatureProfileController = new SignatureProfileController(signatureProfileRepository, validator, result);
 	}
 
 	@Test
 	public void shouldGetAllSignatureProfiles() {
-		when(signatureProfileRepository.findAll()).thenReturn(new ArrayList<SignatureProfile>());
+		signatureProfileRepository.findAll();
 
-		assertNotNull(signatureProfileController.index());
+		verify(signatureProfileRepository).findAll();
 	}
 
 	@Test
@@ -56,5 +55,6 @@ public class SignatureProfileControllerTest {
 		signatureProfileController.create(signatureProfile);
 
 		assertEquals("Perfil de assinatura adicionado com sucesso.", result.included("sucess"));
+		verify(result).redirectTo(signatureProfileController.index());
 	}
 }

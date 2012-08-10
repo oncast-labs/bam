@@ -41,14 +41,14 @@ public class DocumentController {
 		try {
 			documentService.store(uploadedFile);
 			result.include("sucess", "O documento foi criado com sucesso");
-			result.forwardTo(this).index();
+			result.redirectTo(this.index());
 		} catch (CannotCopyDocumentException e) {
 			result.include("fail",
 					"Não foi possível copiar o arquivo para o servidor, por favor, entre em contato com o suporte técnico.");
-			result.forwardTo(this).newDocument();
+			result.redirectTo(this).newDocument();
 		} catch (InvalidDocumentTypeException e) {
 			result.include("fail", "O tipo do documento selecionado não é válido.");
-			result.forwardTo(this).newDocument();
+			result.redirectTo(this).newDocument();
 		}
 	}
 }
