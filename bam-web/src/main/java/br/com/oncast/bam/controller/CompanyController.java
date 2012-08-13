@@ -31,12 +31,12 @@ public class CompanyController {
 	@Post("/companies")
 	public void create(Company company) {
 		validator.validate(company);
-		validator.onErrorUsePageOf(this.newCompany());
+		validator.onErrorUsePageOf(this).newCompany();
 
 		companyRepository.create(company);
 
 		result.include("sucess", "A empresa foi incluida com sucesso.");
-		result.redirectTo(this.index());
+		result.redirectTo(this).index();
 	}
 
 	@Get("/companies")

@@ -37,6 +37,9 @@
 					  	<li>
 					  		<a href="${pageContext.request.contextPath}/signatureprofiles">Perfis de Assinatura</a>
 					  	</li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/companies">Empresas</a>
+					  	</li>
 					</ul>
 				</div>
 			</div>

@@ -41,7 +41,7 @@ public class DocumentController {
 		try {
 			documentService.store(uploadedFile);
 			result.include("sucess", "O documento foi criado com sucesso");
-			result.redirectTo(this.index());
+			result.redirectTo(this).index();
 		} catch (CannotCopyDocumentException e) {
 			result.include("fail",
 					"Não foi possível copiar o arquivo para o servidor, por favor, entre em contato com o suporte técnico.");

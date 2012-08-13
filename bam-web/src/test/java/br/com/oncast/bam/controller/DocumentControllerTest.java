@@ -3,7 +3,6 @@ package br.com.oncast.bam.controller;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -48,7 +47,7 @@ public class DocumentControllerTest {
 	public void shouldUploadDocument() throws Exception {
 		documentController.upload(uploadedFile);
 
-		verify(result).redirectTo(documentController.index());
+		assertEquals("O documento foi criado com sucesso", result.included("sucess"));
 	}
 
 	@Test

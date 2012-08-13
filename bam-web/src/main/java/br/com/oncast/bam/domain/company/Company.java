@@ -1,10 +1,11 @@
 package br.com.oncast.bam.domain.company;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,10 +28,10 @@ public class Company {
 	@Column(unique = true)
 	private String cnpj;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Address address;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Contact> contacts;
 
 	public String getName() {
@@ -65,10 +66,8 @@ public class Company {
 		return contacts;
 	}
 
-	public void addContact(Contact newContact) {
-		if (contacts == null)
-			contacts = new ArrayList<Contact>();
-		contacts.add(newContact);
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
 	}
 
 }

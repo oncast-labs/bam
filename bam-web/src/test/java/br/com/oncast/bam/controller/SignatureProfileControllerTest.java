@@ -2,7 +2,6 @@ package br.com.oncast.bam.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -29,7 +28,7 @@ public class SignatureProfileControllerTest {
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
-		result = spy(new MockResult());
+		result = new MockResult();
 		validator = new MockValidator();
 		signatureProfileController = new SignatureProfileController(signatureProfileRepository, validator, result);
 	}
@@ -55,6 +54,5 @@ public class SignatureProfileControllerTest {
 		signatureProfileController.create(signatureProfile);
 
 		assertEquals("Perfil de assinatura adicionado com sucesso.", result.included("sucess"));
-		verify(result).redirectTo(signatureProfileController.index());
 	}
 }

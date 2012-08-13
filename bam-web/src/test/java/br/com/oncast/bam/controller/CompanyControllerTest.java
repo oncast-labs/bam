@@ -1,5 +1,6 @@
 package br.com.oncast.bam.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -45,8 +46,8 @@ public class CompanyControllerTest {
 
 		companyController.create(company);
 
-		verify(result).redirectTo(companyController.index());
 		verify(companyRepository).create(company);
+		assertEquals("A empresa foi incluida com sucesso.", result.included("sucess"));
 	}
 
 	@Test(expected = ValidationException.class)
