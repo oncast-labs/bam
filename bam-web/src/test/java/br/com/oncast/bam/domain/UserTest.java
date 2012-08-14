@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.domain.user.User;
 
 public class UserTest {
 

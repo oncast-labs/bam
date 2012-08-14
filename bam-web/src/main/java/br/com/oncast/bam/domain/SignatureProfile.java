@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 
 import br.com.oncast.bam.EnabledUserGroupsException;
 import br.com.oncast.bam.EnabledUsersException;
+import br.com.oncast.bam.domain.user.User;
+import br.com.oncast.bam.domain.user.UserGroup;
 
 @Entity
 public class SignatureProfile {

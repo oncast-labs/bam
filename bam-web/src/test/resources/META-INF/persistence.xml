@@ -6,8 +6,6 @@
 
 	<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
 		<class>br.com.oncast.bam.domain.SignatureProfile</class>
-		<class>br.com.oncast.bam.domain.User</class>
-		<class>br.com.oncast.bam.domain.UserGroup</class>
 		
 		<class>br.com.oncast.bam.domain.company.Address</class>
 		<class>br.com.oncast.bam.domain.company.Company</class>
@@ -15,6 +13,9 @@
 		
 		<class>br.com.oncast.bam.domain.document.Document</class>
 		<class>br.com.oncast.bam.domain.document.DocumentType</class>
+		
+		<class>br.com.oncast.bam.domain.user.User</class>
+		<class>br.com.oncast.bam.domain.user.UserGroup</class>
 	</persistence-unit>
 
 </persistence>

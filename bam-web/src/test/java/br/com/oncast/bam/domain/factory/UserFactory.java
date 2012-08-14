@@ -1,6 +1,6 @@
 package br.com.oncast.bam.domain.factory;
 
-import br.com.oncast.bam.domain.User;
+import br.com.oncast.bam.domain.user.User;
 
 public class UserFactory {
 

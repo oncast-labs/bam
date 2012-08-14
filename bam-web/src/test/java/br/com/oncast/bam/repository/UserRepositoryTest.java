@@ -8,8 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.domain.user.User;
 import br.com.oncast.bam.infra.EntityManagerFactory;
 
 public class UserRepositoryTest {

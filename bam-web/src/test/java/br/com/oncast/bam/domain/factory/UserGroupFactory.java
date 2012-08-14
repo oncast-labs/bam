@@ -1,7 +1,7 @@
 package br.com.oncast.bam.domain.factory;
 
 import br.com.oncast.bam.EnabledUsersException;
-import br.com.oncast.bam.domain.UserGroup;
+import br.com.oncast.bam.domain.user.UserGroup;
 
 public class UserGroupFactory {
 

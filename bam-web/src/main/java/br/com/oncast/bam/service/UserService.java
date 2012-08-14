@@ -3,7 +3,7 @@ package br.com.oncast.bam.service;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.oncast.bam.domain.User;
+import br.com.oncast.bam.domain.user.User;
 import br.com.oncast.bam.integration.xyzmo.UserProfileException;
 import br.com.oncast.bam.integration.xyzmo.UserProfileWrapper;
 import br.com.oncast.bam.repository.UserRepository;

@@ -1,4 +1,4 @@
-package br.com.oncast.bam.domain;
+package br.com.oncast.bam.domain.user;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import br.com.oncast.bam.EnabledUsersException;
+import br.com.oncast.bam.domain.SignatureProfile;
 
 @Entity
 public class UserGroup {

@@ -8,7 +8,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.ioc.RequestScoped;
-import br.com.oncast.bam.domain.UserGroup;
+import br.com.oncast.bam.domain.user.UserGroup;
 import br.com.oncast.bam.repository.UserGroupRepository;
 import br.com.oncast.bam.service.UserService;
 

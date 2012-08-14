@@ -1,4 +1,4 @@
-package br.com.oncast.bam.domain;
+package br.com.oncast.bam.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 
 import br.com.caelum.stella.bean.validation.CPF;
+import br.com.oncast.bam.domain.SignatureProfile;
 
 @Entity(name = "BAM_USER")
 public class User {

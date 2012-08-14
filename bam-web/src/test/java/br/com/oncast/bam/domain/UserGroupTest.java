@@ -8,6 +8,8 @@ import org.junit.Test;
 import br.com.oncast.bam.EnabledUsersException;
 import br.com.oncast.bam.domain.factory.UserFactory;
 import br.com.oncast.bam.domain.factory.UserGroupFactory;
+import br.com.oncast.bam.domain.user.User;
+import br.com.oncast.bam.domain.user.UserGroup;
 
 public class UserGroupTest {
 

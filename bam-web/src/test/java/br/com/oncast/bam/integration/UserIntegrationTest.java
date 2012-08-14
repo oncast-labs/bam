@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import br.com.caelum.vraptor.validator.ValidationException;
 import br.com.oncast.bam.controller.UserController;
-import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.domain.user.User;
 import br.com.oncast.bam.integration.xyzmo.UserProfileWrapper;
 import br.com.oncast.bam.integration.xyzmo.factory.BiometricServerFactory;
 import br.com.oncast.bam.repository.UserRepository;

@@ -10,8 +10,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import br.com.oncast.bam.domain.User;
 import br.com.oncast.bam.domain.factory.UserFactory;
+import br.com.oncast.bam.domain.user.User;
 import br.com.oncast.bam.integration.xyzmo.UserProfileException;
 import br.com.oncast.bam.integration.xyzmo.UserProfileWrapper;
 import br.com.oncast.bam.repository.UserRepository;

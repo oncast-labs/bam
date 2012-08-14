@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.oncast.bam.domain.User;
+import br.com.oncast.bam.domain.user.User;
 import br.com.oncast.bam.repository.UserRepository;
 import br.com.oncast.bam.service.UserService;
 
