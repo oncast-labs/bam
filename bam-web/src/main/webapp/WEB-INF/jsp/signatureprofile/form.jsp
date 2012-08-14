@@ -41,7 +41,7 @@
 			<div class="controls">
 				<select name="signatureProfile.countersignAttached" id="countersignAttached">
 					<option value="true" selected="${signatureProfile.countersignAttached}">Sim</option>
-					<option value="false" selected="${not signatureProfile.countersignAttached}">N�o</option>
+					<option value="false" selected="${not signatureProfile.countersignAttached}">Não</option>
 				</select>
 			</div>
 		</div>
@@ -51,7 +51,7 @@
 			<div class="controls">
 				<select name="signatureProfile.signatureAttached" id="signatureAttached">
 					<option value="true" selected="${signatureProfile.signatureAttached}">Sim</option>
-					<option value="false" selected="${not signatureProfile.signatureAttached}">N�o</option>
+					<option value="false" selected="${not signatureProfile.signatureAttached}">Não</option>
 				</select>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 			<div class="controls">
 				<select name="signatureProfile.timeStampAttached" id="timeStampAttached">
 					<option value="true" selected="${signatureProfile.timeStampAttached}">Sim</option>
-					<option value="false" selected="${not signatureProfile.timeStampAttached}">N�o</option>
+					<option value="false" selected="${not signatureProfile.timeStampAttached}">Não</option>
 				</select>
 			</div>
 		</div>
@@ -71,7 +71,7 @@
 			<div class="controls">
 				<select name="signatureProfile.certificateAttached" id="certificateAttached">
 					<option value="true" selected="${signatureProfile.certificateAttached}">Sim</option>
-					<option value="false" selected="${not signatureProfile.certificateAttached}">N�o</option>
+					<option value="false" selected="${not signatureProfile.certificateAttached}">Não</option>
 				</select>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 			<div class="controls">
 				<select name="signatureProfile.stampAttached" id="stampAttached">
 					<option value="true" selected="${signatureProfile.stampAttached}">Sim</option>
-					<option value="false" selected="${not signatureProfile.stampAttached}">N�o</option>
+					<option value="false" selected="${not signatureProfile.stampAttached}">Não</option>
 				</select>
 			</div>
 		</div>
