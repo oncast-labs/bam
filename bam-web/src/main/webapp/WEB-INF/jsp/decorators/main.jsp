@@ -40,6 +40,9 @@
 					  	<li>
 					  		<a href="${pageContext.request.contextPath}/companies">Empresas</a>
 					  	</li>
+					  	<li>
+					  		<a href="${pageContext.request.contextPath}/documenttypes">Tipos de documento</a>
+					  	</li>
 					</ul>
 				</div>
 			</div>
