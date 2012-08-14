@@ -29,69 +29,54 @@ public class UserIntegrationTest extends IntegrationTest {
 
 	@Test
 	public void shouldValidatePresenceOfName() {
-		// Given
 		User user = UserFactory.getUserWithoutName();
 
 		try {
-			// When
 			userController.create(user);
 		} catch (ValidationException e) {
-			// Then
 			shouldContainErrorMessage("name", "may not be null", validator.getErrors());
 		}
 	}
 
 	@Test
 	public void shouldValidatePresenceOfCpf() {
-		// Given
 		User user = UserFactory.getUserWithoutCpf();
 
 		try {
-			// When
 			userController.create(user);
 		} catch (ValidationException e) {
-			// Then
 			shouldContainErrorMessage("cpf", "may not be null", validator.getErrors());
 		}
 	}
 
 	@Test
 	public void shouldValidatePresenceOfEmail() {
-		// Given
 		User user = UserFactory.getUserWithoutEmail();
 
 		try {
-			// When
 			userController.create(user);
 		} catch (ValidationException e) {
-			// Then
 			shouldContainErrorMessage("email", "may not be null", validator.getErrors());
 		}
 	}
 
 	@Test
 	public void shouldValidatePresenceOfUsername() {
-		// Given
 		User user = UserFactory.getUserWithoutUsername();
 
 		try {
-			// When
 			userController.create(user);
 		} catch (ValidationException e) {
-			// Then
 			shouldContainErrorMessage("username", "may not be null", validator.getErrors());
 		}
 	}
 
 	@Test
 	public void shouldCreateUserWithValidData() {
-		// Given
 		User user = UserFactory.getUser();
 
-		// When
 		userController.create(user);
 
-		// Then
 		assertEquals(result.included("sucess"), "Usuário incluído com sucesso!");
 	}
 }
