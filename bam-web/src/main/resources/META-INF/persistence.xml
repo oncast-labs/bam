@@ -5,7 +5,6 @@
 	version="2.0">
 
 	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
-		<class>br.com.oncast.bam.domain.Document</class>
 		<class>br.com.oncast.bam.domain.SignatureProfile</class>
 		<class>br.com.oncast.bam.domain.User</class>
 		<class>br.com.oncast.bam.domain.UserGroup</class>
@@ -13,6 +12,9 @@
 		<class>br.com.oncast.bam.domain.company.Address</class>
 		<class>br.com.oncast.bam.domain.company.Company</class>
 		<class>br.com.oncast.bam.domain.company.Contact</class>
-    </persistence-unit>
+		
+		<class>br.com.oncast.bam.domain.document.Document</class>
+		<class>br.com.oncast.bam.domain.document.DocumentType</class>
+	</persistence-unit>
 
 </persistence>

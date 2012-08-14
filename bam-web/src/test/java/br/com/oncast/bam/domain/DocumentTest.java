@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import br.com.oncast.bam.domain.document.Document;
+
 public class DocumentTest {
 
 	@Test

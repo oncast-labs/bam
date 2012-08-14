@@ -17,7 +17,7 @@ import org.mockito.Mockito;
 import br.com.caelum.vraptor.interceptor.multipart.DefaultUploadedFile;
 import br.com.oncast.bam.CannotCopyDocumentException;
 import br.com.oncast.bam.InvalidDocumentTypeException;
-import br.com.oncast.bam.domain.Document;
+import br.com.oncast.bam.domain.document.Document;
 import br.com.oncast.bam.repository.DocumentRepository;
 
 public class DocumentServiceTest {

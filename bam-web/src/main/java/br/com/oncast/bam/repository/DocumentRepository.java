@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.oncast.bam.domain.Document;
+import br.com.oncast.bam.domain.document.Document;
 
 @Component
 public class DocumentRepository extends Repository<Document, Long> {

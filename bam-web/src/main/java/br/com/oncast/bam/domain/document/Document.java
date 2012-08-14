@@ -1,4 +1,4 @@
-package br.com.oncast.bam.domain;
+package br.com.oncast.bam.domain.document;
 
 import java.io.File;
 
