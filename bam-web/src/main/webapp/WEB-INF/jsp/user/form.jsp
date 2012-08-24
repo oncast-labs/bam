@@ -1,3 +1,6 @@
+<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/deployJava.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/main_enroll.js"></script>
+
 <form action="<c:url value="/users"/>" method="post" class="form-horizontal">
   
 	<c:if test="${not empty user.id}">
@@ -91,6 +94,26 @@
 		</div>
 	</fieldset>
 </form>
+
+        <div style="padding: 5px;border:1px solid #C0C0C0; width:320px;height:215px;"> 
+            <!-- tablet manager -->
+            <script type="text/javascript">
+                var attributes = {
+                    name: 'TabletManager1',
+                    id: 'TabletManager1',
+                    code: 'com.xyzmo.biometricserver.tabletmanager.TabletManager.class',
+                    width: '320px',
+                    height: '200px'
+                };
+                var parameters = {
+                    separate_jvm: 'true',
+                    jnlp_href: 'http://testserver:50200/TabletManager/deploy.jnlp',
+                    applet_id: 'TabletManager1'
+                };
+                deployJava.runApplet(attributes, parameters, '1.6');
+                var tabletManager = document.getElementById('TabletManager1');
+            </script>
+		</div>
 
 <script>
 function enroll(userId) {
